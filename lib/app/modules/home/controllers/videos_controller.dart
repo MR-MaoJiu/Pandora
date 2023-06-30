@@ -8,6 +8,7 @@ class VideosController extends HomeController with StateMixin<List<Videos>> {
   late PageController pageViewController;
   var pageVideosIndex = 0.obs;
   var res = "maowu".obs;
+  var searchTitle = "".obs;
   List<Videos> videos = [];
   void getVideoList(int index) async {
     print("=========>>>>>>当前是第$index页数据");
@@ -19,7 +20,7 @@ class VideosController extends HomeController with StateMixin<List<Videos>> {
     // change(videos, status: RxStatus.loading());
     //执行网络请求
     Response response = await homeProvider
-        .searchVideos("", pageVideosIndex.value, res: res.value);
+        .searchVideos(searchTitle.value, pageVideosIndex.value, res: res.value);
     print(">>>>>>${response.body}");
     //请求出错时
     if (response.hasError) {
@@ -34,6 +35,7 @@ class VideosController extends HomeController with StateMixin<List<Videos>> {
     }
   }
 
+  TextEditingController textController = TextEditingController();
   @override
   void onInit() {
     super.onInit();

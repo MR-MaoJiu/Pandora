@@ -36,7 +36,7 @@ class BooksView extends GetView<BooksController> {
               //onLoading: const CupertinoActivityIndicator(radius: 10), //加载中，默认是个Center(child:CircularProgressIndicator())
               onEmpty: const Text('No data found'), //空数据显示
               onError: (error) => Text(error!), //出错界面显示
-              onLoading: SpinKitCircle(
+              onLoading: const SpinKitCircle(
                 color: Colors.black,
                 size: 50.0,
               ), //加载界面显示
