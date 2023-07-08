@@ -3,6 +3,7 @@ import 'package:pandora/provider/provider.dart';
 
 import '../controllers/books_controller.dart';
 import '../controllers/home_controller.dart';
+import '../controllers/lives_controller.dart';
 import '../controllers/videos_controller.dart';
 
 class HomeBinding extends Bindings {
@@ -17,6 +18,9 @@ class HomeBinding extends Bindings {
     );
     Get.lazyPut<VideosController>(
       () => VideosController(),
+    );
+    Get.lazyPut<LivesController>(
+      () => LivesController(),
     );
   }
 }

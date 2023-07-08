@@ -1,11 +1,6 @@
 import 'dart:convert';
 
-T? asT<T>(dynamic value) {
-  if (value is T) {
-    return value;
-  }
-  return null;
-}
+import 'base_models.dart';
 
 class VideosResponse {
   VideosResponse({
