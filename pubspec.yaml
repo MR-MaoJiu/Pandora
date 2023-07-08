@@ -26,7 +26,9 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test: 
     sdk: flutter
-
+  flutter_launcher_icons_maker: ^0.10.2
+flutter_icons: {android: launcher_icon, image_path: assets/icon/icon.png, ios: true,
+                flutter_lints: ^1.0.4 }
 flutter: 
   uses-material-design: true
 
