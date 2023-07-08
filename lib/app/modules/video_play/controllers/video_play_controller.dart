@@ -13,7 +13,7 @@ class VideoPlayController extends GetxController {
         Get.arguments["url"].split(Uri.parse(Get.arguments["url"]).host)[1];
     print(">>>>>>>>>>>>>>>>>>>$path");
     Response response = await homeProvider.getVideo(path);
-
+    print(">>>>>>>>>>>>>>>>>>>$response");
     url.value = response.body['m3u8'];
     playController = VideoPlayerController.networkUrl(Uri.parse(url.value));
     url.refresh();
@@ -25,8 +25,14 @@ class VideoPlayController extends GetxController {
   void onInit() {
     super.onInit();
     title.value = Get.arguments["title"];
-    Get.arguments["url"];
-    getVideo();
+
+    if (Get.arguments["isZhuBo"] != null && Get.arguments["isZhuBo"]) {
+      print(">>>>>>>>>>>>>>>>>>>${Get.arguments["url"]}");
+      url.value = Get.arguments["url"];
+      playController = VideoPlayerController.networkUrl(Uri.parse(url.value));
+    } else {
+      getVideo();
+    }
   }
 
   @override
