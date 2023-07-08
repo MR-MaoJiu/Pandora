@@ -15,9 +15,10 @@ class VideosController extends HomeController with StateMixin<List<Videos>> {
     if (index == 0) {
       pageVideosIndex.value = 0;
       videos.clear();
+      //刚开始显示加载中。。
+      change(videos, status: RxStatus.loading());
     }
-    //刚开始显示加载中。。
-    // change(videos, status: RxStatus.loading());
+
     //执行网络请求
     Response response = await homeProvider
         .searchVideos(searchTitle.value, pageVideosIndex.value, res: res.value);
