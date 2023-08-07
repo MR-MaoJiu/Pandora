@@ -6,6 +6,8 @@ import '../modules/video_play/bindings/video_play_binding.dart';
 import '../modules/video_play/bindings/video_play_binding.dart';
 import '../modules/video_play/views/video_play_view.dart';
 import '../modules/video_play/views/video_play_view.dart';
+import '../modules/zhubo/bindings/zhubo_binding.dart';
+import '../modules/zhubo/views/zhubo_view.dart';
 
 part 'app_routes.dart';
 
@@ -31,6 +33,11 @@ class AppPages {
           binding: VideoPlayBinding(),
         ),
       ],
+    ),
+    GetPage(
+      name: _Paths.ZHUBO,
+      page: () => const ZhuboView(),
+      binding: ZhuboBinding(),
     ),
   ];
 }

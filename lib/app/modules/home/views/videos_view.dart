@@ -160,33 +160,6 @@ class VideosView extends GetView<VideosController> {
             color: Colors.black,
             size: 50.0,
           ), //加载界面显示
-        )
-        // body: PageView.builder(
-        //   controller: controller.pageViewController,
-        //   onPageChanged: (index) {
-        //     print(
-        //         "=========>>>>>>onPageChanged:$index==${controller.pageViewController.initialPage}==${controller.pageViewController.page}");
-        //     controller.getVideos(index);
-        //     controller.pageVideosIndex.value = index;
-        //   },
-        //   itemBuilder: (context, index) {
-        //     return controller.obx(
-        //       (data) => MarkdownWidget(
-        //         data: html2md.convert(data ?? ''),
-        //         selectable: false,
-        //         shrinkWrap: true,
-        //         markdownGeneratorConfig: MarkdownGeneratorConfig(),
-        //       ),
-        //       //onLoading: const CupertinoActivityIndicator(radius: 10), //加载中，默认是个Center(child:CircularProgressIndicator())
-        //       onEmpty: const Text('No data found'), //空数据显示
-        //       onError: (error) => Text(error!), //出错界面显示
-        //       onLoading: SpinKitCircle(
-        //         color: Colors.black,
-        //         size: 50.0,
-        //       ), //加载界面显示
-        //     );
-        //   },
-        // )
-        );
+        ));
   }
 }

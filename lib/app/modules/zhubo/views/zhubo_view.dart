@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh_strong/easy_refresh.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:pandora/app/modules/home/controllers/lives_controller.dart';
 
 import '../../../routes/app_pages.dart';
+import '../controllers/zhubo_controller.dart';
 
-class LivesView extends GetView<LivesController> {
-  const LivesView({Key? key}) : super(key: key);
+class ZhuboView extends GetView<ZhuboController> {
+  const ZhuboView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('直播平台'),
+        title: Obx(() => Text(controller.title.value)),
         centerTitle: true,
       ),
       body: controller.obx(
         (data) => EasyRefresh(
           onRefresh: () async {
-            controller.getLiveList();
+            controller.getZhuBoList();
           },
           child: GridView.builder(
             padding: const EdgeInsets.all(8),
@@ -35,7 +35,7 @@ class LivesView extends GetView<LivesController> {
                   alignment: Alignment.bottomCenter,
                   children: [
                     ExtendedImage.network(
-                      data?[index].xinimg ?? '',
+                      data?[index].img ?? '',
                       height: Get.height,
                       fit: BoxFit.cover,
                       cache: true,
@@ -45,16 +45,17 @@ class LivesView extends GetView<LivesController> {
                       width: Get.width,
                       decoration: const BoxDecoration(color: Colors.black12),
                       child: Text(
-                        "${data?[index].title}(${data?[index].number}人)",
+                        "${data?[index].title}",
                         style: const TextStyle(color: Colors.white),
                       ),
                     )
                   ],
                 ),
                 onTap: () {
-                  Get.toNamed(Routes.ZHUBO, arguments: {
-                    "pingtai": data?[index].address,
+                  Get.toNamed(Routes.VIDEO_PLAY, arguments: {
                     "title": data?[index].title,
+                    "url": data?[index].address,
+                    "isZhuBo": true,
                   });
                 },
               );
@@ -65,7 +66,7 @@ class LivesView extends GetView<LivesController> {
         onEmpty: const Text('No data found'), //空数据显示
         onError: (error) => TextButton(
             onPressed: () {
-              controller.getLiveList();
+              controller.getZhuBoList();
             },
             child: Text(error!)), //出错界面显示
         onLoading: const SpinKitCircle(

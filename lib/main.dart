@@ -11,6 +11,7 @@ Future<void> main() async {
     GetMaterialApp(
       title: "Pandora",
       initialRoute: AppPages.INITIAL,
+      debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
       builder: EasyLoading.init(),
     ),
