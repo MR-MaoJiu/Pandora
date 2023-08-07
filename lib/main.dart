@@ -32,6 +32,14 @@ class Pandora extends StatefulWidget {
 
 class _PandoraState extends State<Pandora> {
   String url = '';
+
+  getData() async {
+    ClipboardData? data = await Clipboard.getData(Clipboard.kTextPlain);
+    setState(() {
+      url = data?.text ?? '';
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -39,12 +47,10 @@ class _PandoraState extends State<Pandora> {
     const QuickActions quickActions = QuickActions();
     quickActions.initialize((shortcutType) async {
       if (shortcutType == 'real') {
-        ClipboardData? data = await Clipboard.getData(Clipboard.kTextPlain);
-        if (data != null) {
-          //这里是一个剪贴板对象，调用data.text就是文本，其他的内容各位自行查看
-          print(data);
-          url = data.text ?? '';
-          if (data.text == "[色][色][色]") {
+        if (url.isNotEmpty) {
+          print(url);
+
+          if (url == "[色][色][色]") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
               return GetMaterialApp(
