@@ -16,24 +16,24 @@ class VideosView extends GetView<VideosController> {
     return Scaffold(
         appBar: AppBar(
           title: AnimationSearchBar(
-            backIcon: Icons.arrow_back_ios_new,
-            backIconColor: Colors.white,
-            isBackButtonVisible: true,
+            // backIcon: Icons.arrow_back_ios_new,
+            // backIconColor: Colors.white,
+            isBackButtonVisible: false,
             centerTitle: '视频',
             hintText: '搜一搜...',
-            closeIconColor: Colors.white,
-            centerTitleStyle: const TextStyle(
-                fontWeight: FontWeight.w500, color: Colors.white, fontSize: 20),
-            //? Search hint text
-            hintStyle: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w300),
-            //? Search Text
-            textStyle: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w300),
-            //? Cursor color
-            cursorColor: Colors.lightBlue.shade300,
-            //? Duration
-            duration: const Duration(milliseconds: 500),
+            // closeIconColor: Colors.white,
+            // centerTitleStyle: const TextStyle(
+            //     fontWeight: FontWeight.w500, color: Colors.white, fontSize: 20),
+            // //? Search hint text
+            // hintStyle: const TextStyle(
+            //     color: Colors.white, fontWeight: FontWeight.w300),
+            // //? Search Text
+            // textStyle: const TextStyle(
+            //     color: Colors.white, fontWeight: FontWeight.w300),
+            // //? Cursor color
+            // cursorColor: Colors.lightBlue.shade300,
+            // //? Duration
+            // duration: const Duration(milliseconds: 500),
             searchBarWidth: Get.width - 80, // Total width of this Widget
             verticalPadding: 0,
             //? Search icon color
