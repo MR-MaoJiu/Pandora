@@ -43,7 +43,7 @@ class _PandoraState extends State<Pandora> {
   @override
   void initState() {
     super.initState();
-
+    getData();
     const QuickActions quickActions = QuickActions();
     quickActions.initialize((shortcutType) async {
       if (shortcutType == 'real') {
