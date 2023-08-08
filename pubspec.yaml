@@ -8,6 +8,8 @@ environment:
 dependencies: 
   cupertino_icons: ^1.0.2
   get: 4.6.5
+  webview_flutter: ^4.2.2
+  quick_actions: ^1.0.5
   fl_video: ^1.2.3
   flutter_easyloading: ^3.0.5
   flutter_spinkit: ^5.2.0
