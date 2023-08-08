@@ -8,6 +8,8 @@ class VideoPlayController extends GetxController {
   var url = "".obs;
   HomeProvider homeProvider = Get.find();
   VideoPlayerController? playController;
+  // final channel = IOWebSocketChannel.connect('ws://180.174.237.78:9527');
+
   getVideo() async {
     String path =
         Get.arguments["url"].split(Uri.parse(Get.arguments["url"]).host)[1];
@@ -24,6 +26,7 @@ class VideoPlayController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
     title.value = Get.arguments["title"];
 
     if (Get.arguments["isZhuBo"] != null && Get.arguments["isZhuBo"]) {

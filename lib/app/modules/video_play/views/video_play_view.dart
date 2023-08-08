@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
+import '../../home/controllers/home_controller.dart';
 import '../controllers/video_play_controller.dart';
 
 class VideoPlayView extends GetView<VideoPlayController> {
@@ -10,9 +11,19 @@ class VideoPlayView extends GetView<VideoPlayController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
+          key: GlobalKey(),
           appBar: AppBar(
             title: Text(controller.title.value ?? ''),
             centerTitle: true,
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    HomeController homeController = Get.find();
+                    homeController.channel.sink.add(
+                        '{"action":"play","url":"${controller.url.value}","title":"${controller.title}"}');
+                  },
+                  icon: const Icon(Icons.link))
+            ],
           ),
           body: controller.url.isEmpty
               ? const SpinKitCircle(
